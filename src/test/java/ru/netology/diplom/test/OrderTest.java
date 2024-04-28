@@ -113,21 +113,38 @@ public class OrderTest {
     }
 
     @Test
-    void shouldNotSendFormWithExpiryCardPayment() {
+    void shouldNotSendFormWithExpiredYearCardPayment() {
 
         Pages.getPaymentPage();
-        DataHelper.getExpiredCardData();
+        DataHelper.getExpiredYearCardData();
         buttons.findBy(exactText("Продолжить")).click();
         subs.get(0).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Истёк срок действия карты"));
     }
 
     @Test
-    void shouldNotSendFormWithExpiryCardCredit() {
+    void shouldNotSendFormWithExpiredYearCardCredit() {
 
         Pages.getCreditPage();
-        DataHelper.getExpiredCardData();
+        DataHelper.getExpiredYearCardData();
         buttons.findBy(exactText("Продолжить")).click();
         subs.get(0).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Истёк срок действия карты"));
+    }
+    @Test
+    void shouldNotSendFormWithExpiredMonthCardPayment() {
+
+        Pages.getPaymentPage();
+        DataHelper.getExpiredMonthCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.get(0).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверно указан срок действия карты"));
+    }
+
+    @Test
+    void shouldNotSendFormWithExpiredMonthCardCredit() {
+
+        Pages.getCreditPage();
+        DataHelper.getExpiredMonthCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.get(0).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверно указан срок действия карты"));
     }
 
     @Test

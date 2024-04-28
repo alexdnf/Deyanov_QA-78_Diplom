@@ -100,13 +100,23 @@ public class DataHelper {
         elements.get(4).setValue(getValidCVCCode());
     }
 
-    public static void getExpiredCardData() {
-        var month = getCardMonth(0);
-        var year = getCardYear(-1);
+    public static void getExpiredYearCardData() {
+        var validMonth = getCardMonth(0);
+        var expiredYear = getCardYear(-1);
 
         elements.get(0).setValue(getValidCardNumber());
-        elements.get(1).setValue(month);
-        elements.get(2).setValue(year);
+        elements.get(1).setValue(validMonth);
+        elements.get(2).setValue(expiredYear);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getValidCVCCode());
+    }
+    public static void getExpiredMonthCardData() {
+        var expiredMonth = getCardMonth(-1);
+        var validYear = getCardYear(0);
+
+        elements.get(0).setValue(getValidCardNumber());
+        elements.get(1).setValue(expiredMonth);
+        elements.get(2).setValue(validYear);
         elements.get(3).setValue(getValidCardholderName());
         elements.get(4).setValue(getValidCVCCode());
     }
