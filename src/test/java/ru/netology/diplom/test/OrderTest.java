@@ -41,7 +41,7 @@ public class OrderTest {
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
         Thread.sleep(10000);
         Assertions.assertEquals("APPROVED", SQLHelper.getStatusPayment());
-        Assertions.assertEquals("45000", SQLHelper.getAmountPayment());
+        Assertions.assertEquals(4500000, SQLHelper.getAmountPayment());
     }
 
     @Test
@@ -70,6 +70,20 @@ public class OrderTest {
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Ошибка! Банк отказал в проведении операции.")).shouldBe(visible, Duration.ofSeconds(15));
         Assertions.assertEquals("DECLINED", SQLHelper.getStatusCredit());
+    }
+    @Test
+    void shouldNotSendFormWith0000CardPayment() {
+        Pages.getPaymentPage();
+        DataHelper.get0000CardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWith0000CardCredit() {
+        Pages.getCreditPage();
+        DataHelper.get0000CardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
     }
 
     @Test
@@ -184,7 +198,7 @@ public class OrderTest {
     }
 
     @Test
-    void shouldSendFormWithInvalidNameNumbersPayment() {
+    void shouldNotSendFormWithInvalidNameNumbersPayment() {
 
         Pages.getPaymentPage();
         DataHelper.getNumbersNameCardData();
@@ -202,35 +216,46 @@ public class OrderTest {
     }
 
     @Test
-    void shouldSendFormWithDoubleNameSpacePayment() {
+    void shouldSendFormWithDoubleNameSpacePayment() throws InterruptedException {
         Pages.getPaymentPage();
         DataHelper.getDoubleNameSpaceCardData();
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
+        Thread.sleep(10000);
+        Assertions.assertEquals("APPROVED", SQLHelper.getStatusPayment());
+        Assertions.assertEquals(4500000, SQLHelper.getAmountPayment());
     }
 
     @Test
-    void shouldSendFormWithDoubleNameSpaceCredit() {
+    void shouldSendFormWithDoubleNameSpaceCredit() throws InterruptedException {
         Pages.getCreditPage();
         DataHelper.getDoubleNameSpaceCardData();
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
+        Thread.sleep(10000);
+        Assertions.assertEquals("APPROVED", SQLHelper.getStatusCredit());
     }
 
     @Test
-    void shouldSendFormWithDoubleNameDashPayment() {
+    void shouldSendFormWithDoubleSurnamePayment() throws InterruptedException {
         Pages.getPaymentPage();
-        DataHelper.getDoubleNameDashCardData();
+        DataHelper.getDoubleSurnameCardData();
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
+        Thread.sleep(10000);
+        Assertions.assertEquals("APPROVED", SQLHelper.getStatusPayment());
+        Assertions.assertEquals(4500000, SQLHelper.getAmountPayment());
     }
 
     @Test
-    void shouldSendFormWithDoubleNameDashCredit() {
+    void shouldSendFormWithDoubleSurnameCredit() throws InterruptedException {
         Pages.getCreditPage();
-        DataHelper.getDoubleNameDashCardData();
+        DataHelper.getDoubleSurnameCardData();
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
+        Thread.sleep(10000);
+        Assertions.assertEquals("APPROVED", SQLHelper.getStatusPayment());
+        Assertions.assertEquals(4500000, SQLHelper.getAmountPayment());
     }
 
     @Test
@@ -323,4 +348,60 @@ public class OrderTest {
         subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
     }
 
+    @Test
+    void shouldNotSendFormWithNotFullCardNumberPayment() {
+        Pages.getPaymentPage();
+        DataHelper.getNotFullCardNumberData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullCardNumberCredit() {
+        Pages.getCreditPage();
+        DataHelper.getNotFullCardNumberData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullMonthCardPayment() {
+        Pages.getPaymentPage();
+        DataHelper.getNotFullMonthCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullMonthCardCredit() {
+        Pages.getCreditPage();
+        DataHelper.getNotFullMonthCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullYearCardPayment() {
+        Pages.getPaymentPage();
+        DataHelper.getNotFullYearCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullYearCardCredit() {
+        Pages.getCreditPage();
+        DataHelper.getNotFullYearCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullCVCCardPayment() {
+        Pages.getPaymentPage();
+        DataHelper.getNotFullCVCCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
+    @Test
+    void shouldNotSendFormWithNotFullCVCCardCredit() {
+        Pages.getPaymentPage();
+        DataHelper.getNotFullCVCCardData();
+        buttons.findBy(exactText("Продолжить")).click();
+        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+    }
 }

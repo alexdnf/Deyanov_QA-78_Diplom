@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DataHelper {
@@ -26,16 +25,22 @@ public class DataHelper {
     public static String getRandomCardNumber() {
         return faker.business().creditCardNumber();
     }
+    public static String get0000CardNumber() { return "0000 0000 0000 0000"; }
+    public static String getNotFullCardNumber() {
+        return faker.numerify("#### #### #### ###");
+    }
 
     public static String getValidCardholderName() {
-        return faker.name().fullName();
+        String name = faker.name().firstName();
+        String surname = faker.name().lastName();
+        return name + " " + surname;
     }
 
     public static String getValidCardholderDoubleNameSpace() {
-        return "Ivan Ivanov Petrov";
+        return "Ivan Sergey Petrov";
     }
 
-    public static String getValidCardholderDoubleNameDash() {
+    public static String getValidCardholderDoubleSurname() {
         return "Ivan Ivanov-Petrov";
     }
 
@@ -54,13 +59,21 @@ public class DataHelper {
     public static String getValidCVCCode() {
         return faker.numerify("###");
     }
-
+    public static String getNotFullCVCCode() {
+        return faker.numerify("##");
+    }
     public static String getCardMonth(int count) {
         return LocalDate.now().plusMonths(count).format(DateTimeFormatter.ofPattern("MM"));
+    }
+    public static String getNotFullMonth() {
+        return faker.numerify("#");
     }
 
     public static String getCardYear(int count) {
         return LocalDate.now().plusYears(count).format(DateTimeFormatter.ofPattern("yy"));
+    }
+    public static String getNotFullCardYear() {
+        return faker.numerify("#");
     }
 
     public static void getValidCardData() {
@@ -165,14 +178,65 @@ public class DataHelper {
         elements.get(4).setValue(getValidCVCCode());
     }
 
-    public static void getDoubleNameDashCardData() {
+    public static void getDoubleSurnameCardData() {
         var validMonth = getCardMonth(0);
         var validYear = getCardYear(0);
 
         elements.get(0).setValue(getValidCardNumber());
         elements.get(1).setValue(validMonth);
         elements.get(2).setValue(validYear);
-        elements.get(3).setValue(getValidCardholderDoubleNameDash());
+        elements.get(3).setValue(getValidCardholderDoubleSurname());
         elements.get(4).setValue(getValidCVCCode());
+    }
+
+    public static void get0000CardData() {
+        var validMonth = getCardMonth(0);
+        var validYear = getCardYear(0);
+
+        elements.get(0).setValue(get0000CardNumber());
+        elements.get(1).setValue(validMonth);
+        elements.get(2).setValue(validYear);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getValidCVCCode());
+    }
+    public static void getNotFullCardNumberData() {
+        var validMonth = getCardMonth(0);
+        var validYear = getCardYear(0);
+
+        elements.get(0).setValue(getNotFullCardNumber());
+        elements.get(1).setValue(validMonth);
+        elements.get(2).setValue(validYear);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getValidCVCCode());
+    }
+    public static void getNotFullMonthCardData() {
+        var month = getNotFullMonth();
+        var validYear = getCardYear(0);
+
+        elements.get(0).setValue(getValidCardNumber());
+        elements.get(1).setValue(month);
+        elements.get(2).setValue(validYear);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getValidCVCCode());
+    }
+    public static void getNotFullYearCardData() {
+        var validMonth = getCardMonth(0);
+        var year = getNotFullCardYear();
+
+        elements.get(0).setValue(getValidCardNumber());
+        elements.get(1).setValue(validMonth);
+        elements.get(2).setValue(year);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getValidCVCCode());
+    }
+    public static void getNotFullCVCCardData() {
+        var validMonth = getCardMonth(0);
+        var validYear = getCardYear(0);
+
+        elements.get(0).setValue(getValidCardNumber());
+        elements.get(1).setValue(validMonth);
+        elements.get(2).setValue(validYear);
+        elements.get(3).setValue(getValidCardholderName());
+        elements.get(4).setValue(getNotFullCVCCode());
     }
 }
