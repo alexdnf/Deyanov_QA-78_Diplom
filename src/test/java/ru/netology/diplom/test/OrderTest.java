@@ -254,8 +254,7 @@ public class OrderTest {
         buttons.findBy(exactText("Продолжить")).click();
         $(byText("Операция одобрена Банком.")).shouldBe(visible, Duration.ofSeconds(15));
         Thread.sleep(10000);
-        Assertions.assertEquals("APPROVED", SQLHelper.getStatusPayment());
-        Assertions.assertEquals(4500000, SQLHelper.getAmountPayment());
+        Assertions.assertEquals("APPROVED", SQLHelper.getStatusCredit());
     }
 
     @Test
