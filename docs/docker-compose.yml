@@ -18,7 +18,7 @@ services:
        - POSTGRES_DB=app
        - POSTGRES_PASSWORD=pass
    node-service:
-     build: ./gate-simulator
+     build: gate-simulator
      image: node-service.1.0
      ports:
        - '9999:9999'
