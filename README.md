@@ -27,9 +27,11 @@
   **Для запуска контейнеров ввести в терминале:** `docker-compose -f docs/docker-compose.yml up --build`
   
 3. Запуск приложения
-  - Для запуска приложения ввести в терминале `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`
+  - Для запуска приложения ввести в терминале `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar` - для работы с базой данный MySQL
+  - или `java "-Dspring.datasource.url=jdbc:posgresql://localhost:5432/app" -jar artifacts/aqa-shop.jar` - для работы с базой данных PostgreSQL
   - Приложение будет доступно по адресу: http://localhost:8080/
 4. Запуск тестов
+ - Код автотестов, а также вспомогательные классы для получения данных представлены в [папке](https://github.com/alexdnf/Deyanov_QA-78_Diplom/tree/main/src/test/java/ru/netology/diplom)
  - Для запуска тестов ввести в терминале `./gradlew test`
 5. Отчет
- - Для просмотра отчетности Allure Report в браузере, после завершения тестов ввести в терминале `./gradlew allureserve`
+ - Для просмотра отчетности Allure Report в браузере после завершения тестов ввести в терминале `./gradlew allureserve`
