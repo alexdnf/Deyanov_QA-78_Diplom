@@ -20,15 +20,15 @@
 
 Запустить на компьютере программу Docker Desktop 
 Для запуска приложения необходимо подготовить следующие Docker-контейнеры:
- - Эмулятор банковского сервиса (для создания образа используется Dockerfile, запуск описан в docker-compose.yml)
- - MySQL (запуск описан в docker-compose.yml, данные для подключения к БД описаны в application.properties)
- - PostgreSQL (запуск описан в docker-compose.yml, данные для подключения к БД описаны в application.properties)
+ - Эмулятор банковского сервиса (представлен в каталоге [gate-simulator](https://github.com/alexdnf/Deyanov_QA-78_Diplom/tree/main/docs/gate-simulator), для создания образа используется [Dockerfile](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/gate-simulator/Dockerfile), запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml))
+ - MySQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
+ - PostgreSQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
 
   **Для запуска контейнеров ввести в терминале:** `docker-compose -f docs/docker-compose.yml up --build`
   
 3. Запуск приложения
-  Для запуска приложения ввести в терминале `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`
-  Приложение будет доступно по адресу: http://localhost:8080/
+  - Для запуска приложения ввести в терминале `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar`
+  - Приложение будет доступно по адресу: http://localhost:8080/
 4. Запуск тестов
  - Для запуска тестов ввести в терминале `./gradlew test`
 5. Отчет
