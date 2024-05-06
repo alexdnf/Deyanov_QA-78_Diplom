@@ -13,7 +13,7 @@ public class SQLHelper {
     private SQLHelper() {
     }
     public static Connection getConn() throws SQLException {
-        return DriverManager.getConnection(System.getProperty("db.url"), "app", "pass");
+        return DriverManager.getConnection(System.getProperty("db.url"),"app", "pass");
     }
     @SneakyThrows
     public static String getStatusPayment() {

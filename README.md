@@ -32,6 +32,10 @@
   - Приложение будет доступно по адресу: http://localhost:8080/
 4. Запуск тестов
  - Код автотестов, а также вспомогательные классы для получения данных представлены в [папке](https://github.com/alexdnf/Deyanov_QA-78_Diplom/tree/main/src/test/java/ru/netology/diplom)
- - Для запуска тестов ввести в терминале `./gradlew test`
+ - Для запуска тестов ввести в терминале 
+ - 
+   `./gradlew "-Ddb.url=jdbc:mysql://localhost:3306/app" test` - при работе с базой данных MySQL 
+ - 
+   `./gradlew "-Ddb.url=jdbc:postgresql://localhost:5432/app" test` - при работе с базой данных PostgreSQL
 5. Отчет
  - Для просмотра отчетности Allure Report в браузере после завершения тестов ввести в терминале `./gradlew allureserve`
