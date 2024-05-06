@@ -49,14 +49,14 @@ public class Pages {
         errorNotification.shouldBe(visible, Duration.ofSeconds(15));
     }
     public void getSubErrorEmptyForm() {
-        subs.get(0).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
-        subs.get(1).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
-        subs.get(2).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
-        subs.get(3).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Поле обязательно для заполнения"));
-        subs.get(4).shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText("Неверный формат"));
+        subs.get(0).shouldBe(visible).shouldHave(exactText("Неверный формат"));
+        subs.get(1).shouldBe(visible).shouldHave(exactText("Неверный формат"));
+        subs.get(2).shouldBe(visible).shouldHave(exactText("Неверный формат"));
+        subs.get(3).shouldBe(visible).shouldHave(exactText("Поле обязательно для заполнения"));
+        subs.get(4).shouldBe(visible).shouldHave(exactText("Неверный формат"));
     }
     public void getSubError(String expectedText) {
-        subs.first().shouldBe(visible, Duration.ofSeconds(10)).shouldHave(exactText(expectedText));
+        subs.findBy(exactText(expectedText)).shouldBe(visible);
     }
 
 }

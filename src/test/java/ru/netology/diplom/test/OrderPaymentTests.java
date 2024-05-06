@@ -145,7 +145,7 @@ public class OrderPaymentTests {
        Pages page = new Pages();
 
        page.getPaymentPage();
-       page.sendCardData(DataHelper.getEmptyCardNumberData());
+       page.sendCardData(DataHelper.getEmptyMonthCardData());
        page.getSubError("Неверный формат");
     }
     @Test

@@ -24,7 +24,7 @@
  - MySQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
  - PostgreSQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
 
-  **Для запуска контейнеров ввести в терминале:** `docker-compose -f docs/docker-compose.yml up --build`
+  **Для запуска контейнеров ввести в терминале:** `docker-compose up --build`
   
 3. Запуск приложения
   - Для запуска приложения ввести в терминале `java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" -jar artifacts/aqa-shop.jar` - для работы с базой данный MySQL
