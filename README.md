@@ -4,6 +4,13 @@
 2. Кредит, полученный по данным карты.
 
 Приложение передает данные банковской карты, введенные пользователем, банковским сервисам. После чего сохраняет информацию об успешности или неуспешности платежа в базе данных  
+
+## Документация
+- [План тестирования](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/Plan.md)
+- [Отчет о тестировании](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/Report.md)
+- [Отчет об автобатизации тестирования](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/Summary.md)
+
+
 # Алгоритм запуска автотестов
 ## Требуемое ПО
 - Git
