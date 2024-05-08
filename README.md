@@ -1,3 +1,4 @@
+# Project Sample  [![Build status](https://ci.appveyor.com/api/projects/status/doyxhi105hj97fsp/branch/main?svg=true)](https://ci.appveyor.com/project/alexdnf/deyanov-qa-78-diplom/branch/main)
 # Дипломный проект профессии "Тестировщик ПО": "Автоматизация тестирования веб-сервиса для покупки тура"
 В проекте представлена автоматизация тестирования веб-сервиса для покупки тура, который взаимодействует с СУБД и API банка. Веб-сервис дает возможность купить тур двумя способами:
 1. Оплата по карте
