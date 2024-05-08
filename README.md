@@ -28,9 +28,9 @@
 
 Запустить на компьютере программу Docker Desktop 
 Для запуска приложения необходимо подготовить следующие Docker-контейнеры:
- - Эмулятор банковского сервиса (представлен в каталоге [gate-simulator](https://github.com/alexdnf/Deyanov_QA-78_Diplom/tree/main/docs/gate-simulator), для создания образа используется [Dockerfile](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/gate-simulator/Dockerfile), запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml))
- - MySQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
- - PostgreSQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docs/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
+ - Эмулятор банковского сервиса (представлен в каталоге [gate-simulator](https://github.com/alexdnf/Deyanov_QA-78_Diplom/tree/main/gate-simulator), для создания образа используется [Dockerfile](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/gate-simulator/Dockerfile), запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docker-compose.yml))
+ - MySQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
+ - PostgreSQL (запуск описан в [docker-compose.yml](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/docker-compose.yml), данные для подключения к БД описаны в [application.properties](https://github.com/alexdnf/Deyanov_QA-78_Diplom/blob/main/application.properties))
 
   **Для запуска контейнеров ввести в терминале:** `docker-compose up --build`
   
