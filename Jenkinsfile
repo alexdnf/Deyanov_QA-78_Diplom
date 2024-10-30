@@ -6,9 +6,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                      curl -L "https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-                      chmod +x /usr/local/bin/docker-compose
-                      docker-compose up -d
+                      sudo docker-compose up -d
                       sleep 60
                       java "-Dspring.datasource.url=jdbc:postgresql://localhost:5432/app" -jar ./artifacts/aqa-shop.jar &
                       sleep 60
