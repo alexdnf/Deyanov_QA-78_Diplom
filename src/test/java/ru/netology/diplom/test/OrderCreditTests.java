@@ -14,6 +14,7 @@ public class OrderCreditTests {
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
+    WebDriverManager.chromedriver().clearDriverCache().setup();
 
     @AfterAll
     static void tearDownAll() {
