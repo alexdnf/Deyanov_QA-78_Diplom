@@ -45,8 +45,4 @@ test {
     // Указываем Selenide использовать Firefox
     systemProperty "selenide.browser", "Firefox"
 
-    // Указываем путь к GeckoDriver
-    tasks.withType(Test) {
-        systemProperty("webdriver.gecko.driver", "/path/to/geckodriver")
-    }
 }
