@@ -41,5 +41,9 @@ test {
     useJUnitPlatform()
     systemProperty 'selenide.browser', 'firefox'
     systemProperty 'webdriver.gecko.driver', '/usr/local/bin/geckodriver'
+
+    tasks.withType(Test) {
+        systemProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver")
+    }
 }
 
